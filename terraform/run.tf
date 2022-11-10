@@ -5,7 +5,7 @@ resource "google_cloud_run_service" "run-service" {
   template {
     spec {
       containers {
-        image = "europe-west4-docker.pkg.dev/${var.project_id}/${local.project}/api"
+        image = "europe-west1-docker.pkg.dev/${var.project_id}/${local.project}/api"
         ports {
           protocol       = "TCP"
           container_port = 8080
@@ -84,3 +84,4 @@ resource "google_project_iam_member" "cloud-sql-client" {
   member  = "serviceAccount:${google_service_account.run-service-account.email}"
   project = var.project_id
 }
+
